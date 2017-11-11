@@ -3,11 +3,11 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.websystique.springmvc</groupId>
-	<artifactId>SpringMVCHibernateManyToManyCRUDExample</artifactId>
+	<groupId>com.faizakram.springmvc</groupId>
+	<artifactId>SpringMVCHibernateWithSpringSecurity</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>SpringMVCHibernateWithSpringSecurityExample</name>
+	<name>SpringMVCHibernateWithSpringSecurity</name>
 
   	<properties>
 		<springframework.version>4.2.5.RELEASE</springframework.version>
@@ -132,12 +132,12 @@
 					<version>2.4</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<warName>SpringMVCHibernateWithSpringSecurityExample</warName>
+						<warName>SpringMVCHibernateWithSpringSecurity</warName>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<finalName>SpringMVCHibernateWithSpringSecurityExample</finalName>
+		<finalName>SpringMVCHibernateWithSpringSecurity</finalName>
 	</build>
 </project>
