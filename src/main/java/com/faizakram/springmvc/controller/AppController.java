@@ -63,6 +63,11 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "userslist";
 	}
+	
+	@RequestMapping(value = "/notification", method = RequestMethod.GET)
+	public String notification(ModelMap model) {
+		return "notification";
+	}
 
 	/**
 	 * This method will provide the medium to add a new user.

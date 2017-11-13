@@ -10,7 +10,7 @@ import com.faizakram.springmvc.dao.UserProfileDao;
 import com.faizakram.springmvc.model.UserProfile;
 
 
-@Service("userProfileService")
+@Service
 @Transactional
 public class UserProfileServiceImpl implements UserProfileService{
 	
