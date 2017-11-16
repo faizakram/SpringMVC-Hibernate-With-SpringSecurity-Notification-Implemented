@@ -1,6 +1,7 @@
 package com.Spring.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import com.Spring.Service.DataEmitterService;
 
 import ch.rasc.sse.eventbus.SseEvent;
 import ch.rasc.sse.eventbus.SseEventBus;
-
+@CrossOrigin
 @RestController
 public class SseController {
 	@Autowired

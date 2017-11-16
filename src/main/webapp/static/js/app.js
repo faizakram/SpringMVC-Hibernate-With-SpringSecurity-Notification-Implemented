@@ -1,4 +1,4 @@
-/*function getChartOption(name, threshold) {
+function getChartOption(name, threshold) {
 	return {
 		series: [ {
 			startAngle: 180,
@@ -65,7 +65,8 @@ for (let i = 0; i < names.length; i++) {
 }
 
 var uuid = uuid.v4();
-*/
+
+
 var eventSource;
 
 window.onbeforeunload = () => {
@@ -74,7 +75,7 @@ window.onbeforeunload = () => {
   }
 }
 
-eventSource = new EventSource(`/SpringMVCHibernateWithSpringSecurity/register/25`);
+eventSource = new EventSource(`/SpringMVCHibernateWithSpringSecurity/register/${uuid}`);
 eventSource.addEventListener('message', response => {
 	for (let line of response.data.split('\n')) {
 		console.log(line);
