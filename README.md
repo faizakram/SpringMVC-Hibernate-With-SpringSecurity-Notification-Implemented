@@ -1,1 +1,2 @@
 # SpringMVCHibernateWithSpringSecurity
+#http://localhost:8080/SpringMVCHibernateWithSpringSecurity/notification
