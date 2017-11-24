@@ -1,7 +1,7 @@
 # More Information To Join on 
-#Email:- faiz.krm@gmail.com
-#Skype:- faiz.akram37
-#Whatsapp:- +91-999-085-8653
+# Email:- faiz.krm@gmail.com
+# Skype:- faiz.akram37
+# Whatsapp:- +91-999-085-8653
 ## SpringMVCHibernateWithSpringSecurity 
 http://localhost:8080/SpringMVCHibernateWithSpringSecurity/notification
 ## Notification SchreenShot
