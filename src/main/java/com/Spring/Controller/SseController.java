@@ -1,12 +1,12 @@
 package com.Spring.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.Spring.Service.DataEmitterService;
@@ -14,7 +14,7 @@ import com.Spring.Service.DataEmitterService;
 import ch.rasc.sse.eventbus.SseEvent;
 import ch.rasc.sse.eventbus.SseEventBus;
 @CrossOrigin
-@RestController
+@Controller
 public class SseController {
 	@Autowired
 	private SseEventBus eventBus;

@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import ch.rasc.sse.eventbus.SseEvent;
-import ch.rasc.sse.eventbus.SseEvent.Builder;
 
 @Service
+@Transactional
 public class DataEmitterService {
 
 	@Autowired

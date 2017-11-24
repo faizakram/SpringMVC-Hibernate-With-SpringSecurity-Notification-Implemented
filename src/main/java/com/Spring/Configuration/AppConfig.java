@@ -1,5 +1,8 @@
 package com.Spring.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -17,8 +20,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import com.Spring.Converter.RoleToUserProfileConverter;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ch.rasc.sse.eventbus.DataObjectConverter;
+import ch.rasc.sse.eventbus.DefaultDataObjectConverter;
+import ch.rasc.sse.eventbus.JacksonDataObjectConverter;
+import ch.rasc.sse.eventbus.SseEventBus;
 import ch.rasc.sse.eventbus.config.EnableSseEventBus;
+import ch.rasc.sse.eventbus.config.SseEventBusConfigurer;
 
 @EnableScheduling
 @EnableSseEventBus
@@ -30,7 +39,14 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 	
 	@Autowired
 	RoleToUserProfileConverter roleToUserProfileConverter;
-	
+	@Autowired(required = false)
+	private SseEventBusConfigurer configurer;
+
+	@Autowired(required = false)
+	private ObjectMapper objectMapper;
+
+	@Autowired(required = false)
+	private List<DataObjectConverter> dataObjectConverters;
 
 	/**
      * Configure ViewResolvers to deliver preferred views.
@@ -81,5 +97,32 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public void configurePathMatch(PathMatchConfigurer matcher) {
         matcher.setUseRegisteredSuffixPatternMatch(true);
     }
+    
+    @Bean
+	public SseEventBus eventBus() {
+		SseEventBusConfigurer config = this.configurer;
+		if (config == null) {
+			config = new SseEventBusConfigurer() {
+				/* nothing_here */ };
+		}
+
+		SseEventBus sseEventBus = new SseEventBus(config);
+
+		List<DataObjectConverter> converters = this.dataObjectConverters;
+		if (converters == null) {
+			converters = new ArrayList<>();
+		}
+
+		if (this.objectMapper != null) {
+			converters.add(new JacksonDataObjectConverter(this.objectMapper));
+		}
+		else {
+			converters.add(new DefaultDataObjectConverter());
+		}
+
+		sseEventBus.setDataObjectConverters(converters);
+
+		return sseEventBus;
+	}
 }
 
